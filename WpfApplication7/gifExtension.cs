@@ -12,6 +12,12 @@ namespace WpfApplication7
 {
     public static class GifExtension
     {
+        /// <summary>
+        /// https://stackoverflow.com/questions/47343230/how-do-you-get-the-duration-of-a-gif-file-in-c
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="fps"></param>
+        /// <returns></returns>
         public static TimeSpan? GetGifDuration(this Image image, int fps = 60)
         {
             var minimumFrameDelay = (1000.0 / fps);
@@ -27,7 +33,6 @@ namespace WpfApplication7
             {
                 var delayPropertyBytes = image.GetPropertyItem(20736).Value;
                 var frameDelay = BitConverter.ToInt32(delayPropertyBytes, f * 4) * 10;
-                // Minimum delay is 16 ms. It's 1/60 sec i.e. 60 fps
                 totalDuration += (frameDelay < minimumFrameDelay ? (int)minimumFrameDelay : frameDelay);
             }
 
@@ -39,7 +44,6 @@ namespace WpfApplication7
             var bm = new Bitmap(image.StreamSource);
             var val = bm.GetGifDuration();
             return val.HasValue ? val.Value : default(TimeSpan);
-            //
         }
 
     }

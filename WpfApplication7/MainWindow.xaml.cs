@@ -41,38 +41,6 @@ namespace WpfApplication7
                 neutral,walk,run,move
             });
 
-            //var b1 = new WebClient().DownloadData(neutral);
-            //var img1 = new BitmapImage();
-            //img1.BeginInit();
-            //img1.CacheOption = BitmapCacheOption.OnLoad;
-            //img1.StreamSource = new MemoryStream(b1);
-            //img1.EndInit();
-
-            //var b2 = new WebClient().DownloadData(walk);
-            //var img2 = new BitmapImage();
-            //img2.BeginInit();
-            //img2.CacheOption = BitmapCacheOption.OnLoad;
-            //img2.StreamSource = new MemoryStream(b2);
-            //img2.EndInit();
-
-            //var b3 = new WebClient().DownloadData(run);
-            //var img3 = new BitmapImage();
-            //img3.BeginInit();
-            //img3.CacheOption = BitmapCacheOption.OnLoad;
-            //img3.StreamSource = new MemoryStream(b3);
-            //img3.EndInit();
-
-            //imgs = new[]
-            //{
-            //    img1,img2,img3
-            //};
-
-            //durations = new[]
-            //{
-            //    GifExtension.GetGifDuration(img1), GifExtension.GetGifDuration(img2), GifExtension.GetGifDuration(img3)
-            //};
-           
-            //btnNeutral_Click(null, null);
         }
         
         private async void MakeGifLists(string[] urls)
@@ -110,21 +78,18 @@ namespace WpfApplication7
         {
             AnimationBehavior.SetSourceStream(holder, imgs[0].StreamSource);
             StartRepeatChecker(durations[0]);
-            //AnimationBehavior.SetSourceUri(holder, imgs[0].UriSource);
         }
 
         private void btnWalk_Click(object sender, RoutedEventArgs e)
         {
             AnimationBehavior.SetSourceStream(holder, imgs[1].StreamSource);
             StartRepeatChecker(durations[1]);
-            //AnimationBehavior.SetSourceUri(holder, imgs[1].UriSource);
         }
 
         private void btnRun_Click(object sender, RoutedEventArgs e)
         {
             AnimationBehavior.SetSourceStream(holder, imgs[2].StreamSource);
             StartRepeatChecker(durations[2]);
-            //AnimationBehavior.SetSourceUri(holder, imgs[2].UriSource);
         }
 
         private void StartRepeatChecker(TimeSpan sp)
