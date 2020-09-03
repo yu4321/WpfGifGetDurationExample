@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApplication7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication7"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="600" FontSize="20">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="holder" gif:AnimationBehavior.AutoStart="True" gif:AnimationBehavior.Loaded="holder_Loaded" gif:AnimationBehavior.AnimationCompleted="holder_AnimationCompleted" Margin="50"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <TextBlock>
+                <Run Text="애니메이션 길이:"/>
+                <Run x:Name="duration"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="반복된 횟수:"/>
+                <Run x:Name="repeated"/>
+            </TextBlock>
+        </StackPanel>
+        <UniformGrid Grid.Column="1" Columns="1">
+            <Button x:Name="btnNeutral" Content="neutral" Click="btnNeutral_Click"/>
+            <Button x:Name="btnWalk" Content="walk" Click="btnWalk_Click"/>
+            <Button x:Name="btnRun" Content="run" Click="btnRun_Click"/>
+            <Button x:Name="btnMove" Content="필살기" Click="btnMove_Click"/>
+        </UniformGrid>
+    </Grid>
+</Window>
